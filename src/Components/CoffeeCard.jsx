@@ -4,9 +4,8 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees, reFetch }) => {
     const { _id, name, chef, supplier, taste, photo } = coffee;
-
     const handleDelete = _id => {
         console.log(_id);
         Swal.fire({
@@ -22,7 +21,6 @@ const CoffeeCard = ({ coffee }) => {
 
                 fetch(`http://localhost:5000/coffee/${_id}`, {
                     method: "DELETE",
-
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -32,8 +30,13 @@ const CoffeeCard = ({ coffee }) => {
                                 text: "Your coffee has been deleted.",
                                 icon: "success"
                             });
+                            const remainData = coffees.filter(cof => cof._id !== _id);
+                            setCoffees(remainData);
+                reFetch.revalidate()
+
                         }
                     })
+
             }
         });
     }
