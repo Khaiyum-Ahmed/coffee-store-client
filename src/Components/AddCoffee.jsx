@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Navbar from './Navbar';
 const AddCoffee = () => {
 
     const handleAddCoffee = e => {
@@ -39,6 +40,7 @@ const AddCoffee = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <form onSubmit={handleAddCoffee}>
                 <fieldset className="fieldset max-w-11/12 mx-auto bg-[#F4F3F0] border-base-300 rounded-box border py-16 px-28">
                     <div>

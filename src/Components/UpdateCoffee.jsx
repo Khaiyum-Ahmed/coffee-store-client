@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import Navbar from "./Navbar";
 
 const UpdateCoffee = () => {
     const coffee = useLoaderData();
@@ -41,6 +42,7 @@ const UpdateCoffee = () => {
     }
     return (
         <div>
+            <Navbar></Navbar>
             <form onSubmit={handleUpdateCoffee}>
                 <fieldset className="fieldset max-w-11/12 mx-auto bg-[#F4F3F0] border-base-300 rounded-box border py-16 px-28">
                     <div>

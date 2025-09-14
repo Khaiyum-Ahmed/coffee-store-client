@@ -11,3 +11,7 @@ body {
   font-family: "Rancho", cursive;
 }
 
+a .active{
+  font-weight: 700;
+  color: chocolate;
+}
