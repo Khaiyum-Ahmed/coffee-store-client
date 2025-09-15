@@ -17,13 +17,15 @@ const SignUp = () => {
         const phone = formData.get('phone');
         const photo = formData.get('photo');
 
-        const userProfile = { email, name, address, phone, photo }
-        console.log(email, password, userProfile)
+
 
         // create user 
         signUp(email, password)
             .then(result => {
                 console.log(result.user);
+
+                const userProfile = { email, name, address, phone, photo, creationTime: result.user?.metadata?.creationTime, lastSignInTime: result.user?.metadata?.lastSignInTime }
+                console.log(email, password, userProfile)
 
                 // save profile info in the DB
                 fetch('http://localhost:5000/users', {
